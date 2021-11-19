@@ -3,7 +3,8 @@ class ChallengesController < ApplicationController
 
   # GET /challenges
   def index
-    @challenges = Challenge.page(params[:page]).per(10)
+    @q = Challenge.ransack(params[:q])
+    @challenges = @q.result(:distinct => true).includes(:participations, :photos, :privileges, :teams).page(params[:page]).per(10)
   end
 
   # GET /challenges/1

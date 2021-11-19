@@ -5,7 +5,8 @@ class PrivilegesController < ApplicationController
 
   # GET /privileges
   def index
-    @privileges = Privilege.page(params[:page]).per(10)
+    @q = Privilege.ransack(params[:q])
+    @privileges = @q.result(:distinct => true).includes(:user, :challenge).page(params[:page]).per(10)
   end
 
   # GET /privileges/1

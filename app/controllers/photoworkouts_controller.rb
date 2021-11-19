@@ -3,7 +3,8 @@ class PhotoworkoutsController < ApplicationController
 
   # GET /photoworkouts
   def index
-    @photoworkouts = Photoworkout.page(params[:page]).per(10)
+    @q = Photoworkout.ransack(params[:q])
+    @photoworkouts = @q.result(:distinct => true).includes(:user, :challenge).page(params[:page]).per(10)
   end
 
   # GET /photoworkouts/1

@@ -3,7 +3,8 @@ class ParticipationsController < ApplicationController
 
   # GET /participations
   def index
-    @participations = Participation.page(params[:page]).per(10)
+    @q = Participation.ransack(params[:q])
+    @participations = @q.result(:distinct => true).includes(:user, :challenge, :team).page(params[:page]).per(10)
   end
 
   # GET /participations/1

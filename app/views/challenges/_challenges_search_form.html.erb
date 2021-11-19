@@ -1,0 +1,196 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "challenges_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :starting_time, "Starting time" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='starting_timegteqPicker' data-target-input="nearest">
+          <%= f.text_field :starting_time_gteq, :class => "form-control datetimepicker-input", :placeholder => "Starting time greater than or equal to", :data => {:target => '#starting_timegteqPicker'} %>
+          <div class="input-group-append" data-target='#starting_timegteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='starting_timelteqPicker' data-target-input="nearest">
+          <%= f.text_field :starting_time_lteq, :class => "form-control datetimepicker-input", :placeholder => "Starting time less than or equal to", :data => {:target => '#starting_timelteqPicker'} %>
+          <div class="input-group-append" data-target='#starting_timelteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#starting_timegteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#starting_timelteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#starting_timegteqPicker').on("dp.change", function (e) {
+              $('#starting_timelteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#starting_timelteqPicker').on("dp.change", function (e) {
+              $('#starting_timegteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :number_of_teams, "Number of teams" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :number_of_teams_gteq, :class => "form-control", :placeholder => "Number of teams greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :number_of_teams_lteq, :class => "form-control", :placeholder => "Number of teams less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :challenge_handle_cont, "Challenge handle contains" %>
+    <%= f.text_field :challenge_handle_cont, :class => "form-control", :placeholder => "Challenge handle contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :prize_policy_cont, "Prize policy contains" %>
+    <%= f.text_field :prize_policy_cont, :class => "form-control", :placeholder => "Prize policy contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :workout_criteria, "Workout criteria" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :workout_criteria_gteq, :class => "form-control", :placeholder => "Workout criteria greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :workout_criteria_lteq, :class => "form-control", :placeholder => "Workout criteria less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :workout_perday_policy, "Workout perday policy" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :workout_perday_policy_gteq, :class => "form-control", :placeholder => "Workout perday policy greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :workout_perday_policy_lteq, :class => "form-control", :placeholder => "Workout perday policy less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :penalty_policy, "Penalty policy" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :penalty_policy_gteq, :class => "form-control", :placeholder => "Penalty policy greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :penalty_policy_lteq, :class => "form-control", :placeholder => "Penalty policy less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :new_user_policy, "New user policy" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :new_user_policy_gteq, :class => "form-control", :placeholder => "New user policy greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :new_user_policy_lteq, :class => "form-control", :placeholder => "New user policy less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :removal_policy, "Removal policy" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :removal_policy_gteq, :class => "form-control", :placeholder => "Removal policy greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :removal_policy_lteq, :class => "form-control", :placeholder => "Removal policy less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :challenge_name_cont, "Challenge name contains" %>
+    <%= f.text_field :challenge_name_cont, :class => "form-control", :placeholder => "Challenge name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :ending_time_cont, "Ending time contains" %>
+    <%= f.text_field :ending_time_cont, :class => "form-control", :placeholder => "Ending time contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :photos_caption_cont, "Photos caption contains" %>
+    <%= f.text_field :photos_caption_cont, :class => "form-control", :placeholder => "Photos caption contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :teams_team_name_cont, "Teams team_name contains" %>
+    <%= f.text_field :teams_team_name_cont, :class => "form-control", :placeholder => "Teams team_name contains" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/challenges" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#challenges_filters">
+  Show filters
+</a>

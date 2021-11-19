@@ -3,7 +3,8 @@ class TeamsController < ApplicationController
 
   # GET /teams
   def index
-    @teams = Team.page(params[:page]).per(10)
+    @q = Team.ransack(params[:q])
+    @teams = @q.result(:distinct => true).includes(:challenge, :participations).page(params[:page]).per(10)
   end
 
   # GET /teams/1
