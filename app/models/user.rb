@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   mount_uploader :profile_picture, ProfilePictureUploader
 
-  # Direct associations
+  
+  include JwtToken
+# Direct associations
 
   has_many   :photos,
              :class_name => "Photoworkout",
