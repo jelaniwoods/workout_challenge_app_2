@@ -11,6 +11,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :privileges
+
   # Indirect associations
 
 end
