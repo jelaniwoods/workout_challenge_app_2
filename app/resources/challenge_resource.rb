@@ -17,6 +17,8 @@ class ChallengeResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :teams
+
   has_many   :privileges
 
   has_many   :photos,

@@ -8,6 +8,8 @@ class TeamResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :challenge
+
   # Indirect associations
 
 end
