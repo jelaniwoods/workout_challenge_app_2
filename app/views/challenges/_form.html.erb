@@ -1,0 +1,317 @@
+<% was_validated = challenge.errors.any? %>
+
+<%= form_with(model: challenge, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for starting_time start -->
+  <div class="form-group">
+    <% starting_time_class = "form-control" %>
+    <% starting_time_was_invalid = challenge.errors.include?(:starting_time) %>
+
+    <% if was_validated %>
+      <% if starting_time_was_invalid %>
+        <% starting_time_class << " is-invalid" %>
+      <% else %>
+        <% starting_time_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :starting_time %>
+    <!-- Input for starting_time start -->
+    <%= f.datetime_select :starting_time, class: starting_time_class, placeholder: "Enter starting time" %>
+    <!-- Input for starting_time end -->
+    <% if starting_time_was_invalid %>
+      <% challenge.errors.full_messages_for(:starting_time).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for starting_time end -->
+  <!-- Label and input for ending_time start -->
+  <div class="form-group">
+    <% ending_time_class = "form-control" %>
+    <% ending_time_was_invalid = challenge.errors.include?(:ending_time) %>
+
+    <% if was_validated %>
+      <% if ending_time_was_invalid %>
+        <% ending_time_class << " is-invalid" %>
+      <% else %>
+        <% ending_time_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :ending_time %>
+    <!-- Input for ending_time start -->
+    <%= f.text_field :ending_time, class: ending_time_class, placeholder: "Enter ending time" %>
+    <!-- Input for ending_time end -->
+    <% if ending_time_was_invalid %>
+      <% challenge.errors.full_messages_for(:ending_time).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for ending_time end -->
+  <!-- Label and input for challenge_name start -->
+  <div class="form-group">
+    <% challenge_name_class = "form-control" %>
+    <% challenge_name_was_invalid = challenge.errors.include?(:challenge_name) %>
+
+    <% if was_validated %>
+      <% if challenge_name_was_invalid %>
+        <% challenge_name_class << " is-invalid" %>
+      <% else %>
+        <% challenge_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :challenge_name %>
+    <!-- Input for challenge_name start -->
+    <%= f.text_field :challenge_name, class: challenge_name_class, placeholder: "Enter challenge name" %>
+    <!-- Input for challenge_name end -->
+    <% if challenge_name_was_invalid %>
+      <% challenge.errors.full_messages_for(:challenge_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for challenge_name end -->
+  <!-- Label and input for challenge_image start -->
+  <div class="form-group">
+    <% challenge_image_class = "form-control" %>
+    <% challenge_image_was_invalid = challenge.errors.include?(:challenge_image) %>
+
+    <% if was_validated %>
+      <% if challenge_image_was_invalid %>
+        <% challenge_image_class << " is-invalid" %>
+      <% else %>
+        <% challenge_image_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :challenge_image %>
+    <!-- Input for challenge_image start -->
+    <%= f.text_field :challenge_image, class: challenge_image_class, placeholder: "Enter challenge image" %>
+    <!-- Input for challenge_image end -->
+    <% if challenge_image_was_invalid %>
+      <% challenge.errors.full_messages_for(:challenge_image).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for challenge_image end -->
+  <!-- Label and input for removal_policy start -->
+  <div class="form-group">
+    <% removal_policy_class = "form-control" %>
+    <% removal_policy_was_invalid = challenge.errors.include?(:removal_policy) %>
+
+    <% if was_validated %>
+      <% if removal_policy_was_invalid %>
+        <% removal_policy_class << " is-invalid" %>
+      <% else %>
+        <% removal_policy_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :removal_policy %>
+    <!-- Input for removal_policy start -->
+    <%= f.number_field :removal_policy, class: removal_policy_class, placeholder: "Enter removal policy" %>
+    <!-- Input for removal_policy end -->
+    <% if removal_policy_was_invalid %>
+      <% challenge.errors.full_messages_for(:removal_policy).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for removal_policy end -->
+  <!-- Label and input for new_user_policy start -->
+  <div class="form-group">
+    <% new_user_policy_class = "form-control" %>
+    <% new_user_policy_was_invalid = challenge.errors.include?(:new_user_policy) %>
+
+    <% if was_validated %>
+      <% if new_user_policy_was_invalid %>
+        <% new_user_policy_class << " is-invalid" %>
+      <% else %>
+        <% new_user_policy_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :new_user_policy %>
+    <!-- Input for new_user_policy start -->
+    <%= f.number_field :new_user_policy, class: new_user_policy_class, placeholder: "Enter new user policy" %>
+    <!-- Input for new_user_policy end -->
+    <% if new_user_policy_was_invalid %>
+      <% challenge.errors.full_messages_for(:new_user_policy).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for new_user_policy end -->
+  <!-- Label and input for penalty_policy start -->
+  <div class="form-group">
+    <% penalty_policy_class = "form-control" %>
+    <% penalty_policy_was_invalid = challenge.errors.include?(:penalty_policy) %>
+
+    <% if was_validated %>
+      <% if penalty_policy_was_invalid %>
+        <% penalty_policy_class << " is-invalid" %>
+      <% else %>
+        <% penalty_policy_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :penalty_policy %>
+    <!-- Input for penalty_policy start -->
+    <%= f.number_field :penalty_policy, class: penalty_policy_class, placeholder: "Enter penalty policy" %>
+    <!-- Input for penalty_policy end -->
+    <% if penalty_policy_was_invalid %>
+      <% challenge.errors.full_messages_for(:penalty_policy).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for penalty_policy end -->
+  <!-- Label and input for workout_perday_policy start -->
+  <div class="form-group">
+    <% workout_perday_policy_class = "form-control" %>
+    <% workout_perday_policy_was_invalid = challenge.errors.include?(:workout_perday_policy) %>
+
+    <% if was_validated %>
+      <% if workout_perday_policy_was_invalid %>
+        <% workout_perday_policy_class << " is-invalid" %>
+      <% else %>
+        <% workout_perday_policy_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :workout_perday_policy %>
+    <!-- Input for workout_perday_policy start -->
+    <%= f.number_field :workout_perday_policy, class: workout_perday_policy_class, placeholder: "Enter workout perday policy" %>
+    <!-- Input for workout_perday_policy end -->
+    <% if workout_perday_policy_was_invalid %>
+      <% challenge.errors.full_messages_for(:workout_perday_policy).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for workout_perday_policy end -->
+  <!-- Label and input for workout_criteria start -->
+  <div class="form-group">
+    <% workout_criterium_class = "form-control" %>
+    <% workout_criterium_was_invalid = challenge.errors.include?(:workout_criterium) %>
+
+    <% if was_validated %>
+      <% if workout_criterium_was_invalid %>
+        <% workout_criterium_class << " is-invalid" %>
+      <% else %>
+        <% workout_criterium_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :workout_criteria %>
+    <!-- Input for workout_criteria start -->
+    <%= f.number_field :workout_criteria, class: workout_criterium_class, placeholder: "Enter workout criterium" %>
+    <!-- Input for workout_criteria end -->
+    <% if workout_criterium_was_invalid %>
+      <% challenge.errors.full_messages_for(:workout_criterium).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for workout_criteria end -->
+  <!-- Label and input for prize_policy start -->
+  <div class="form-group">
+    <% prize_policy_class = "form-control" %>
+    <% prize_policy_was_invalid = challenge.errors.include?(:prize_policy) %>
+
+    <% if was_validated %>
+      <% if prize_policy_was_invalid %>
+        <% prize_policy_class << " is-invalid" %>
+      <% else %>
+        <% prize_policy_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :prize_policy %>
+    <!-- Input for prize_policy start -->
+    <%= f.text_area :prize_policy, class: prize_policy_class, placeholder: "Enter prize policy" %>
+    <!-- Input for prize_policy end -->
+    <% if prize_policy_was_invalid %>
+      <% challenge.errors.full_messages_for(:prize_policy).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for prize_policy end -->
+  <!-- Label and input for challenge_handle start -->
+  <div class="form-group">
+    <% challenge_handle_class = "form-control" %>
+    <% challenge_handle_was_invalid = challenge.errors.include?(:challenge_handle) %>
+
+    <% if was_validated %>
+      <% if challenge_handle_was_invalid %>
+        <% challenge_handle_class << " is-invalid" %>
+      <% else %>
+        <% challenge_handle_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :challenge_handle %>
+    <!-- Input for challenge_handle start -->
+    <%= f.text_field :challenge_handle, class: challenge_handle_class, placeholder: "Enter challenge handle" %>
+    <!-- Input for challenge_handle end -->
+    <% if challenge_handle_was_invalid %>
+      <% challenge.errors.full_messages_for(:challenge_handle).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for challenge_handle end -->
+  <!-- Label and input for number_of_teams start -->
+  <div class="form-group">
+    <% number_of_team_class = "form-control" %>
+    <% number_of_team_was_invalid = challenge.errors.include?(:number_of_team) %>
+
+    <% if was_validated %>
+      <% if number_of_team_was_invalid %>
+        <% number_of_team_class << " is-invalid" %>
+      <% else %>
+        <% number_of_team_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :number_of_teams %>
+    <!-- Input for number_of_teams start -->
+    <%= f.number_field :number_of_teams, class: number_of_team_class, placeholder: "Enter number of team" %>
+    <!-- Input for number_of_teams end -->
+    <% if number_of_team_was_invalid %>
+      <% challenge.errors.full_messages_for(:number_of_team).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for number_of_teams end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

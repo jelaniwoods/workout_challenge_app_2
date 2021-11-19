@@ -1,0 +1,96 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Challenge #<%= challenge.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Starting time</dt>
+      <!-- Display starting_time start -->
+      <dd><%= challenge.starting_time %></dd>
+      <!-- Display starting_time end -->
+
+      <dt>Ending time</dt>
+      <!-- Display ending_time start -->
+      <dd><%= challenge.ending_time %></dd>
+      <!-- Display ending_time end -->
+
+      <dt>Challenge name</dt>
+      <!-- Display challenge_name start -->
+      <dd><%= challenge.challenge_name %></dd>
+      <!-- Display challenge_name end -->
+
+      <dt>Challenge image</dt>
+      <!-- Display challenge_image start -->
+      <dd><%= challenge.challenge_image %></dd>
+      <!-- Display challenge_image end -->
+
+      <dt>Removal policy</dt>
+      <!-- Display removal_policy start -->
+      <dd><%= challenge.removal_policy %></dd>
+      <!-- Display removal_policy end -->
+
+      <dt>New user policy</dt>
+      <!-- Display new_user_policy start -->
+      <dd><%= challenge.new_user_policy %></dd>
+      <!-- Display new_user_policy end -->
+
+      <dt>Penalty policy</dt>
+      <!-- Display penalty_policy start -->
+      <dd><%= challenge.penalty_policy %></dd>
+      <!-- Display penalty_policy end -->
+
+      <dt>Workout perday policy</dt>
+      <!-- Display workout_perday_policy start -->
+      <dd><%= challenge.workout_perday_policy %></dd>
+      <!-- Display workout_perday_policy end -->
+
+      <dt>Workout criteria</dt>
+      <!-- Display workout_criteria start -->
+      <dd><%= challenge.workout_criteria %></dd>
+      <!-- Display workout_criteria end -->
+
+      <dt>Prize policy</dt>
+      <!-- Display prize_policy start -->
+      <dd><%= challenge.prize_policy %></dd>
+      <!-- Display prize_policy end -->
+
+      <dt>Challenge handle</dt>
+      <!-- Display challenge_handle start -->
+      <dd><%= challenge.challenge_handle %></dd>
+      <!-- Display challenge_handle end -->
+
+      <dt>Number of teams</dt>
+      <!-- Display number_of_teams start -->
+      <dd><%= challenge.number_of_teams %></dd>
+      <!-- Display number_of_teams end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back challenge, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link challenge start -->
+      <div class="col">
+        <%= link_to edit_challenge_url(challenge), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link challenge end -->
+
+      <!-- Delete link challenge start -->
+      <div class="col">
+        <%= link_to challenge, method: :delete, data: { confirm: "Do you really want to delete this challenge?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link challenge end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(challenge.updated_at) %> ago
+  </div>
+</div>
