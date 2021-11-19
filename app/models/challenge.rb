@@ -1,6 +1,10 @@
 class Challenge < ApplicationRecord
   # Direct associations
 
+  has_many   :photos,
+             :class_name => "Photoworkout",
+             :dependent => :destroy
+
   has_many   :participations,
              :dependent => :destroy
 

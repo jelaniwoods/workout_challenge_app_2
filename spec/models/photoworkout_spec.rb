@@ -4,6 +4,8 @@ RSpec.describe Photoworkout, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:challenge) }
+
     it { should belong_to(:user) }
 
     end
