@@ -15,8 +15,10 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <%= link_to privilege, method: :delete, data: { confirm: "Do you really want to delete this privilege" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == privilege.user %>
+          <%= link_to privilege, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <!-- Delete link end -->
 

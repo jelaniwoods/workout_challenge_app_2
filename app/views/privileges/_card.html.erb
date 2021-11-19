@@ -24,16 +24,20 @@
 
       <!-- Edit link privilege start -->
       <div class="col">
-        <%= link_to edit_privilege_url(privilege), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @privilege.user %>
+          <%= link_to edit_privilege_url(privilege), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link privilege end -->
 
       <!-- Delete link privilege start -->
       <div class="col">
-        <%= link_to privilege, method: :delete, data: { confirm: "Do you really want to delete this privilege?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @privilege.user %>
+          <%= link_to privilege, method: :delete, data: { confirm: "Do you really want to delete this privilege?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link privilege end -->
