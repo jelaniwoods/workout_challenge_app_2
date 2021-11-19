@@ -1,5 +1,7 @@
 ActiveAdmin.register Challenge do
 
+ permit_params :starting_time, :ending_time, :challenge_name, :challenge_image, :removal_policy, :new_user_policy, :penalty_policy, :workout_perday_policy, :workout_criteria, :prize_policy, :challenge_handle, :number_of_teams
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
