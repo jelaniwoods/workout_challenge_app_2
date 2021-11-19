@@ -42,7 +42,7 @@
 
     <%= f.label :challenge_id %>
     <!-- Input for challenge_id start -->
-    <%= f.number_field :challenge_id, class: challenge_class, placeholder: "Enter challenge" %>
+    <%= f.collection_select :challenge_id, Challenge.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for challenge_id end -->
     <% if challenge_was_invalid %>
       <% photoworkout.errors.full_messages_for(:challenge).each do |message| %>
