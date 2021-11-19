@@ -14,5 +14,4 @@ class Privilege < ApplicationRecord
   def to_s
     challenge.to_s
   end
-
 end

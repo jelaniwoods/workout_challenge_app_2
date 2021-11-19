@@ -1,1 +1,2 @@
-json.array! @photoworkouts, partial: "photoworkouts/photoworkout", as: :photoworkout
+json.array! @photoworkouts, partial: "photoworkouts/photoworkout",
+                            as: :photoworkout

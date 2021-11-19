@@ -13,7 +13,7 @@ class Api::V1::ChallengesController < Api::V1::GraphitiController
     challenge = ChallengeResource.build(params)
 
     if challenge.save
-      render jsonapi: challenge, status: 201
+      render jsonapi: challenge, status: :created
     else
       render jsonapi_errors: challenge
     end
@@ -33,7 +33,7 @@ class Api::V1::ChallengesController < Api::V1::GraphitiController
     challenge = ChallengeResource.find(params)
 
     if challenge.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: challenge
     end

@@ -13,7 +13,7 @@ class Api::V1::PrivilegesController < Api::V1::GraphitiController
     privilege = PrivilegeResource.build(params)
 
     if privilege.save
-      render jsonapi: privilege, status: 201
+      render jsonapi: privilege, status: :created
     else
       render jsonapi_errors: privilege
     end
@@ -33,7 +33,7 @@ class Api::V1::PrivilegesController < Api::V1::GraphitiController
     privilege = PrivilegeResource.find(params)
 
     if privilege.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: privilege
     end

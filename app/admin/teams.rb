@@ -1,6 +1,5 @@
 ActiveAdmin.register Team do
-
- permit_params :team_name, :team_picture, :challenge_id
+  permit_params :team_name, :team_picture, :challenge_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register Team do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

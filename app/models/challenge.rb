@@ -4,17 +4,17 @@ class Challenge < ApplicationRecord
   # Direct associations
 
   has_many   :teams,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :privileges,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :photos,
-             :class_name => "Photoworkout",
-             :dependent => :destroy
+             class_name: "Photoworkout",
+             dependent: :destroy
 
   has_many   :participations,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -25,5 +25,4 @@ class Challenge < ApplicationRecord
   def to_s
     starting_time
   end
-
 end

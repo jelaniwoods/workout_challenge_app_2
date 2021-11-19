@@ -13,5 +13,4 @@ class TeamResource < ApplicationResource
   belongs_to :challenge
 
   # Indirect associations
-
 end

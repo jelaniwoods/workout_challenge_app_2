@@ -15,5 +15,4 @@ class ParticipationResource < ApplicationResource
   belongs_to :user
 
   # Indirect associations
-
 end

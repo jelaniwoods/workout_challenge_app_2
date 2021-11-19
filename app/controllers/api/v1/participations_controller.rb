@@ -13,7 +13,7 @@ class Api::V1::ParticipationsController < Api::V1::GraphitiController
     participation = ParticipationResource.build(params)
 
     if participation.save
-      render jsonapi: participation, status: 201
+      render jsonapi: participation, status: :created
     else
       render jsonapi_errors: participation
     end
@@ -33,7 +33,7 @@ class Api::V1::ParticipationsController < Api::V1::GraphitiController
     participation = ParticipationResource.find(params)
 
     if participation.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: participation
     end

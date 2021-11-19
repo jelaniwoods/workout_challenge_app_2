@@ -1,15 +1,15 @@
 class ParticipationsController < ApplicationController
-  before_action :set_participation, only: [:show, :edit, :update, :destroy]
+  before_action :set_participation, only: %i[show edit update destroy]
 
   # GET /participations
   def index
     @q = Participation.ransack(params[:q])
-    @participations = @q.result(:distinct => true).includes(:user, :challenge, :team).page(params[:page]).per(10)
+    @participations = @q.result(distinct: true).includes(:user, :challenge,
+                                                         :team).page(params[:page]).per(10)
   end
 
   # GET /participations/1
-  def show
-  end
+  def show; end
 
   # GET /participations/new
   def new
@@ -17,17 +17,16 @@ class ParticipationsController < ApplicationController
   end
 
   # GET /participations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /participations
   def create
     @participation = Participation.new(participation_params)
 
     if @participation.save
-      message = 'Participation was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Participation was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @participation, notice: message
       end
@@ -39,7 +38,8 @@ class ParticipationsController < ApplicationController
   # PATCH/PUT /participations/1
   def update
     if @participation.update(participation_params)
-      redirect_to @participation, notice: 'Participation was successfully updated.'
+      redirect_to @participation,
+                  notice: "Participation was successfully updated."
     else
       render :edit
     end
@@ -49,22 +49,22 @@ class ParticipationsController < ApplicationController
   def destroy
     @participation.destroy
     message = "Participation was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to participations_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_participation
-      @participation = Participation.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def participation_params
-      params.require(:participation).permit(:user_id, :challenge_id, :team_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_participation
+    @participation = Participation.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def participation_params
+    params.require(:participation).permit(:user_id, :challenge_id, :team_id)
+  end
 end

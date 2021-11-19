@@ -16,5 +16,4 @@ class Photoworkout < ApplicationRecord
   def to_s
     caption
   end
-
 end

@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe ParticipationResource, type: :resource do
-  describe 'creating' do
+  describe "creating" do
     let(:payload) do
       {
         data: {
-          type: 'participations',
-          attributes: { }
-        }
+          type: "participations",
+          attributes: {},
+        },
       }
     end
 
@@ -15,23 +15,24 @@ RSpec.describe ParticipationResource, type: :resource do
       ParticipationResource.build(payload)
     end
 
-    it 'works' do
-      expect {
-        expect(instance.save).to eq(true), instance.errors.full_messages.to_sentence
-      }.to change { Participation.count }.by(1)
+    it "works" do
+      expect do
+        expect(instance.save).to eq(true),
+                                 instance.errors.full_messages.to_sentence
+      end.to change { Participation.count }.by(1)
     end
   end
 
-  describe 'updating' do
+  describe "updating" do
     let!(:participation) { create(:participation) }
 
     let(:payload) do
       {
         data: {
           id: participation.id.to_s,
-          type: 'participations',
-          attributes: { } # Todo!
-        }
+          type: "participations",
+          attributes: {}, # Todo!
+        },
       }
     end
 
@@ -39,25 +40,25 @@ RSpec.describe ParticipationResource, type: :resource do
       ParticipationResource.find(payload)
     end
 
-    xit 'works (add some attributes and enable this spec)' do
-      expect {
+    xit "works (add some attributes and enable this spec)" do
+      expect do
         expect(instance.update_attributes).to eq(true)
-      }.to change { participation.reload.updated_at }
+      end.to change { participation.reload.updated_at }
       # .and change { participation.foo }.to('bar') <- example
     end
   end
 
-  describe 'destroying' do
+  describe "destroying" do
     let!(:participation) { create(:participation) }
 
     let(:instance) do
       ParticipationResource.find(id: participation.id)
     end
 
-    it 'works' do
-      expect {
+    it "works" do
+      expect do
         expect(instance.destroy).to eq(true)
-      }.to change { Participation.count }.by(-1)
+      end.to change { Participation.count }.by(-1)
     end
   end
 end

@@ -13,7 +13,7 @@ class Api::V1::TeamsController < Api::V1::GraphitiController
     team = TeamResource.build(params)
 
     if team.save
-      render jsonapi: team, status: 201
+      render jsonapi: team, status: :created
     else
       render jsonapi_errors: team
     end
@@ -33,7 +33,7 @@ class Api::V1::TeamsController < Api::V1::GraphitiController
     team = TeamResource.find(params)
 
     if team.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: team
     end

@@ -1,15 +1,15 @@
 class PhotoworkoutsController < ApplicationController
-  before_action :set_photoworkout, only: [:show, :edit, :update, :destroy]
+  before_action :set_photoworkout, only: %i[show edit update destroy]
 
   # GET /photoworkouts
   def index
     @q = Photoworkout.ransack(params[:q])
-    @photoworkouts = @q.result(:distinct => true).includes(:user, :challenge).page(params[:page]).per(10)
+    @photoworkouts = @q.result(distinct: true).includes(:user,
+                                                        :challenge).page(params[:page]).per(10)
   end
 
   # GET /photoworkouts/1
-  def show
-  end
+  def show; end
 
   # GET /photoworkouts/new
   def new
@@ -17,17 +17,16 @@ class PhotoworkoutsController < ApplicationController
   end
 
   # GET /photoworkouts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /photoworkouts
   def create
     @photoworkout = Photoworkout.new(photoworkout_params)
 
     if @photoworkout.save
-      message = 'Photoworkout was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Photoworkout was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @photoworkout, notice: message
       end
@@ -39,7 +38,8 @@ class PhotoworkoutsController < ApplicationController
   # PATCH/PUT /photoworkouts/1
   def update
     if @photoworkout.update(photoworkout_params)
-      redirect_to @photoworkout, notice: 'Photoworkout was successfully updated.'
+      redirect_to @photoworkout,
+                  notice: "Photoworkout was successfully updated."
     else
       render :edit
     end
@@ -49,22 +49,23 @@ class PhotoworkoutsController < ApplicationController
   def destroy
     @photoworkout.destroy
     message = "Photoworkout was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to photoworkouts_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_photoworkout
-      @photoworkout = Photoworkout.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def photoworkout_params
-      params.require(:photoworkout).permit(:caption, :challenge_id, :user_id, :likes_count, :photo_locator, :calories, :main_exercise)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_photoworkout
+    @photoworkout = Photoworkout.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def photoworkout_params
+    params.require(:photoworkout).permit(:caption, :challenge_id, :user_id,
+                                         :likes_count, :photo_locator, :calories, :main_exercise)
+  end
 end

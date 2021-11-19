@@ -13,7 +13,7 @@ class Api::V1::PhotoworkoutsController < Api::V1::GraphitiController
     photoworkout = PhotoworkoutResource.build(params)
 
     if photoworkout.save
-      render jsonapi: photoworkout, status: 201
+      render jsonapi: photoworkout, status: :created
     else
       render jsonapi_errors: photoworkout
     end
@@ -33,7 +33,7 @@ class Api::V1::PhotoworkoutsController < Api::V1::GraphitiController
     photoworkout = PhotoworkoutResource.find(params)
 
     if photoworkout.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: photoworkout
     end

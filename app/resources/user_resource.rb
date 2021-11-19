@@ -19,5 +19,4 @@ class UserResource < ApplicationResource
   has_many   :privileges
 
   # Indirect associations
-
 end

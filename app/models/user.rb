@@ -1,19 +1,18 @@
 class User < ApplicationRecord
   mount_uploader :profile_picture, ProfilePictureUploader
 
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :photos,
-             :class_name => "Photoworkout",
-             :dependent => :destroy
+             class_name: "Photoworkout",
+             dependent: :destroy
 
   has_many   :participations,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :privileges,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 

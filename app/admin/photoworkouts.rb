@@ -1,6 +1,6 @@
 ActiveAdmin.register Photoworkout do
-
- permit_params :caption, :challenge_id, :user_id, :likes_count, :photo_locator, :calories, :main_exercise
+  permit_params :caption, :challenge_id, :user_id, :likes_count, :photo_locator,
+                :calories, :main_exercise
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +14,4 @@ ActiveAdmin.register Photoworkout do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

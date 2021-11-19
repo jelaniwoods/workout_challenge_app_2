@@ -4,7 +4,7 @@ class Team < ApplicationRecord
   # Direct associations
 
   has_many   :participations,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :challenge
 
@@ -17,5 +17,4 @@ class Team < ApplicationRecord
   def to_s
     team_name
   end
-
 end
