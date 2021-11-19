@@ -1,6 +1,8 @@
 class Participation < ApplicationRecord
   # Direct associations
 
+  belongs_to :challenge
+
   belongs_to :user
 
   # Indirect associations

@@ -4,6 +4,8 @@ RSpec.describe Challenge, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:participations) }
+
     end
 
     describe "InDirect Associations" do
