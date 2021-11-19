@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "challenges#index"
   resources :photoworkouts
   resources :privileges
   resources :teams
