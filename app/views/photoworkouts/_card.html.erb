@@ -12,12 +12,20 @@
 
       <dt>Challenge</dt>
       <!-- Display challenge_id start -->
-      <dd><%= photoworkout.challenge_id %></dd>
+      <dd>
+        <% if @photoworkout.challenge.present? %>
+          <%= link_to photoworkout.challenge, photoworkout.challenge %>
+        <% end %>
+      </dd>
       <!-- Display challenge_id end -->
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= photoworkout.user_id %></dd>
+      <dd>
+        <% if @photoworkout.user.present? %>
+          <%= link_to photoworkout.user, photoworkout.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Likes count</dt>

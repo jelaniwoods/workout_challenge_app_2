@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Challenge</dt>
       <!-- Display challenge_id start -->
-      <dd><%= privilege.challenge_id %></dd>
+      <dd>
+        <% if @privilege.challenge.present? %>
+          <%= link_to privilege.challenge, privilege.challenge %>
+        <% end %>
+      </dd>
       <!-- Display challenge_id end -->
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= privilege.user_id %></dd>
+      <dd>
+        <% if @privilege.user.present? %>
+          <%= link_to privilege.user, privilege.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>

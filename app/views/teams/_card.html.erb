@@ -19,7 +19,11 @@
 
       <dt>Challenge</dt>
       <!-- Display challenge_id start -->
-      <dd><%= team.challenge_id %></dd>
+      <dd>
+        <% if @team.challenge.present? %>
+          <%= link_to team.challenge, team.challenge %>
+        <% end %>
+      </dd>
       <!-- Display challenge_id end -->
 
     </dl>

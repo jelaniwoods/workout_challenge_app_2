@@ -7,17 +7,29 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= participation.user_id %></dd>
+      <dd>
+        <% if @participation.user.present? %>
+          <%= link_to participation.user, participation.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Challenge</dt>
       <!-- Display challenge_id start -->
-      <dd><%= participation.challenge_id %></dd>
+      <dd>
+        <% if @participation.challenge.present? %>
+          <%= link_to participation.challenge, participation.challenge %>
+        <% end %>
+      </dd>
       <!-- Display challenge_id end -->
 
       <dt>Team</dt>
       <!-- Display team_id start -->
-      <dd><%= participation.team_id %></dd>
+      <dd>
+        <% if @participation.team.present? %>
+          <%= link_to participation.team, participation.team %>
+        <% end %>
+      </dd>
       <!-- Display team_id end -->
 
     </dl>
