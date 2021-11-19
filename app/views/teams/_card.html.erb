@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Team #<%= team.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Team name</dt>
+      <!-- Display team_name start -->
+      <dd><%= team.team_name %></dd>
+      <!-- Display team_name end -->
+
+      <dt>Team picture</dt>
+      <!-- Display team_picture start -->
+      <dd><%= team.team_picture %></dd>
+      <!-- Display team_picture end -->
+
+      <dt>Challenge</dt>
+      <!-- Display challenge_id start -->
+      <dd><%= team.challenge_id %></dd>
+      <!-- Display challenge_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back team, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link team start -->
+      <div class="col">
+        <%= link_to edit_team_url(team), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link team end -->
+
+      <!-- Delete link team start -->
+      <div class="col">
+        <%= link_to team, method: :delete, data: { confirm: "Do you really want to delete this team?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link team end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(team.updated_at) %> ago
+  </div>
+</div>

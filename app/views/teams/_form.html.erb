@@ -1,0 +1,83 @@
+<% was_validated = team.errors.any? %>
+
+<%= form_with(model: team, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for team_name start -->
+  <div class="form-group">
+    <% team_name_class = "form-control" %>
+    <% team_name_was_invalid = team.errors.include?(:team_name) %>
+
+    <% if was_validated %>
+      <% if team_name_was_invalid %>
+        <% team_name_class << " is-invalid" %>
+      <% else %>
+        <% team_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :team_name %>
+    <!-- Input for team_name start -->
+    <%= f.text_field :team_name, class: team_name_class, placeholder: "Enter team name" %>
+    <!-- Input for team_name end -->
+    <% if team_name_was_invalid %>
+      <% team.errors.full_messages_for(:team_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for team_name end -->
+  <!-- Label and input for team_picture start -->
+  <div class="form-group">
+    <% team_picture_class = "form-control" %>
+    <% team_picture_was_invalid = team.errors.include?(:team_picture) %>
+
+    <% if was_validated %>
+      <% if team_picture_was_invalid %>
+        <% team_picture_class << " is-invalid" %>
+      <% else %>
+        <% team_picture_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :team_picture %>
+    <!-- Input for team_picture start -->
+    <%= f.text_field :team_picture, class: team_picture_class, placeholder: "Enter team picture" %>
+    <!-- Input for team_picture end -->
+    <% if team_picture_was_invalid %>
+      <% team.errors.full_messages_for(:team_picture).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for team_picture end -->
+  <!-- Label and input for challenge_id start -->
+  <div class="form-group">
+    <% challenge_class = "form-control" %>
+    <% challenge_was_invalid = team.errors.include?(:challenge) %>
+
+    <% if was_validated %>
+      <% if challenge_was_invalid %>
+        <% challenge_class << " is-invalid" %>
+      <% else %>
+        <% challenge_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :challenge_id %>
+    <!-- Input for challenge_id start -->
+    <%= f.number_field :challenge_id, class: challenge_class, placeholder: "Enter challenge" %>
+    <!-- Input for challenge_id end -->
+    <% if challenge_was_invalid %>
+      <% team.errors.full_messages_for(:challenge).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for challenge_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

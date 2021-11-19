@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :teams
   resources :participations
   resources :challenges
   devise_for :users
