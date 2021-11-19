@@ -1,0 +1,187 @@
+<% was_validated = photoworkout.errors.any? %>
+
+<%= form_with(model: photoworkout, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for caption start -->
+  <div class="form-group">
+    <% caption_class = "form-control" %>
+    <% caption_was_invalid = photoworkout.errors.include?(:caption) %>
+
+    <% if was_validated %>
+      <% if caption_was_invalid %>
+        <% caption_class << " is-invalid" %>
+      <% else %>
+        <% caption_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :caption %>
+    <!-- Input for caption start -->
+    <%= f.text_area :caption, class: caption_class, placeholder: "Enter caption" %>
+    <!-- Input for caption end -->
+    <% if caption_was_invalid %>
+      <% photoworkout.errors.full_messages_for(:caption).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for caption end -->
+  <!-- Label and input for challenge_id start -->
+  <div class="form-group">
+    <% challenge_class = "form-control" %>
+    <% challenge_was_invalid = photoworkout.errors.include?(:challenge) %>
+
+    <% if was_validated %>
+      <% if challenge_was_invalid %>
+        <% challenge_class << " is-invalid" %>
+      <% else %>
+        <% challenge_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :challenge_id %>
+    <!-- Input for challenge_id start -->
+    <%= f.number_field :challenge_id, class: challenge_class, placeholder: "Enter challenge" %>
+    <!-- Input for challenge_id end -->
+    <% if challenge_was_invalid %>
+      <% photoworkout.errors.full_messages_for(:challenge).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for challenge_id end -->
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = photoworkout.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% photoworkout.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for likes_count start -->
+  <div class="form-group">
+    <% likes_count_class = "form-control" %>
+    <% likes_count_was_invalid = photoworkout.errors.include?(:likes_count) %>
+
+    <% if was_validated %>
+      <% if likes_count_was_invalid %>
+        <% likes_count_class << " is-invalid" %>
+      <% else %>
+        <% likes_count_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :likes_count %>
+    <!-- Input for likes_count start -->
+    <%= f.number_field :likes_count, class: likes_count_class, placeholder: "Enter likes count" %>
+    <!-- Input for likes_count end -->
+    <% if likes_count_was_invalid %>
+      <% photoworkout.errors.full_messages_for(:likes_count).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for likes_count end -->
+  <!-- Label and input for photo_locator start -->
+  <div class="form-group">
+    <% photo_locator_class = "form-control" %>
+    <% photo_locator_was_invalid = photoworkout.errors.include?(:photo_locator) %>
+
+    <% if was_validated %>
+      <% if photo_locator_was_invalid %>
+        <% photo_locator_class << " is-invalid" %>
+      <% else %>
+        <% photo_locator_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :photo_locator %>
+    <!-- Input for photo_locator start -->
+    <%= f.text_field :photo_locator, class: photo_locator_class, placeholder: "Enter photo locator" %>
+    <!-- Input for photo_locator end -->
+    <% if photo_locator_was_invalid %>
+      <% photoworkout.errors.full_messages_for(:photo_locator).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for photo_locator end -->
+  <!-- Label and input for calories start -->
+  <div class="form-group">
+    <% calory_class = "form-control" %>
+    <% calory_was_invalid = photoworkout.errors.include?(:calory) %>
+
+    <% if was_validated %>
+      <% if calory_was_invalid %>
+        <% calory_class << " is-invalid" %>
+      <% else %>
+        <% calory_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :calories %>
+    <!-- Input for calories start -->
+    <%= f.number_field :calories, class: calory_class, placeholder: "Enter calory" %>
+    <!-- Input for calories end -->
+    <% if calory_was_invalid %>
+      <% photoworkout.errors.full_messages_for(:calory).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for calories end -->
+  <!-- Label and input for main_exercise start -->
+  <div class="form-group">
+    <% main_exercise_class = "form-control" %>
+    <% main_exercise_was_invalid = photoworkout.errors.include?(:main_exercise) %>
+
+    <% if was_validated %>
+      <% if main_exercise_was_invalid %>
+        <% main_exercise_class << " is-invalid" %>
+      <% else %>
+        <% main_exercise_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :main_exercise %>
+    <!-- Input for main_exercise start -->
+    <%= f.text_field :main_exercise, class: main_exercise_class, placeholder: "Enter main exercise" %>
+    <!-- Input for main_exercise end -->
+    <% if main_exercise_was_invalid %>
+      <% photoworkout.errors.full_messages_for(:main_exercise).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for main_exercise end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
