@@ -1,4 +1,6 @@
 class Challenge < ApplicationRecord
+  mount_uploader :challenge_image, ChallengeImageUploader
+
   # Direct associations
 
   has_many   :teams,

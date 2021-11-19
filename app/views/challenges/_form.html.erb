@@ -94,7 +94,7 @@
 
     <%= f.label :challenge_image %>
     <!-- Input for challenge_image start -->
-    <%= f.text_field :challenge_image, class: challenge_image_class, placeholder: "Enter challenge image" %>
+    <%= f.file_field :challenge_image, class: "form-control" %>
     <!-- Input for challenge_image end -->
     <% if challenge_image_was_invalid %>
       <% challenge.errors.full_messages_for(:challenge_image).each do |message| %>

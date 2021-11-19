@@ -22,7 +22,9 @@
 
       <dt>Challenge image</dt>
       <!-- Display challenge_image start -->
-      <dd><%= challenge.challenge_image %></dd>
+      <dd>
+        <%= cl_image_tag @challenge.challenge_image, class: "img-fluid" %>
+      </dd>
       <!-- Display challenge_image end -->
 
       <dt>Removal policy</dt>

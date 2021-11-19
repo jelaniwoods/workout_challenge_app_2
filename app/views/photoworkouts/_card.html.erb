@@ -27,7 +27,9 @@
 
       <dt>Photo locator</dt>
       <!-- Display photo_locator start -->
-      <dd><%= photoworkout.photo_locator %></dd>
+      <dd>
+        <%= cl_image_tag @photoworkout.photo_locator, class: "img-fluid" %>
+      </dd>
       <!-- Display photo_locator end -->
 
       <dt>Calories</dt>

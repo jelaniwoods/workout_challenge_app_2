@@ -1,4 +1,6 @@
 class Photoworkout < ApplicationRecord
+  mount_uploader :photo_locator, PhotoLocatorUploader
+
   # Direct associations
 
   belongs_to :challenge

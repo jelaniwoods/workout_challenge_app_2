@@ -120,7 +120,7 @@
 
     <%= f.label :photo_locator %>
     <!-- Input for photo_locator start -->
-    <%= f.text_field :photo_locator, class: photo_locator_class, placeholder: "Enter photo locator" %>
+    <%= f.file_field :photo_locator, class: "form-control" %>
     <!-- Input for photo_locator end -->
     <% if photo_locator_was_invalid %>
       <% photoworkout.errors.full_messages_for(:photo_locator).each do |message| %>

@@ -12,7 +12,9 @@
 
       <dt>Profile picture</dt>
       <!-- Display profile_picture start -->
-      <dd><%= user.profile_picture %></dd>
+      <dd>
+        <%= cl_image_tag @user.profile_picture, class: "img-fluid" %>
+      </dd>
       <!-- Display profile_picture end -->
 
       <dt>Bio</dt>

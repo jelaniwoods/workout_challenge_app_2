@@ -12,7 +12,9 @@
 
       <dt>Team picture</dt>
       <!-- Display team_picture start -->
-      <dd><%= team.team_picture %></dd>
+      <dd>
+        <%= cl_image_tag @team.team_picture, class: "img-fluid" %>
+      </dd>
       <!-- Display team_picture end -->
 
       <dt>Challenge</dt>

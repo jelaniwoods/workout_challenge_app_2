@@ -42,7 +42,7 @@
 
     <%= f.label :team_picture %>
     <!-- Input for team_picture start -->
-    <%= f.text_field :team_picture, class: team_picture_class, placeholder: "Enter team picture" %>
+    <%= f.file_field :team_picture, class: "form-control" %>
     <!-- Input for team_picture end -->
     <% if team_picture_was_invalid %>
       <% team.errors.full_messages_for(:team_picture).each do |message| %>

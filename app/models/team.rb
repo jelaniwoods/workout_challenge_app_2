@@ -1,4 +1,6 @@
 class Team < ApplicationRecord
+  mount_uploader :team_picture, TeamPictureUploader
+
   # Direct associations
 
   has_many   :participations,
