@@ -42,8 +42,14 @@ class ParticipationsController < ApplicationController
   # DELETE /participations/1
   def destroy
     @participation.destroy
-    redirect_to participations_url, notice: 'Participation was successfully destroyed.'
+    message = "Participation was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to participations_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

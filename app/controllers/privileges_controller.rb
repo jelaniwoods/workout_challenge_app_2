@@ -42,8 +42,14 @@ class PrivilegesController < ApplicationController
   # DELETE /privileges/1
   def destroy
     @privilege.destroy
-    redirect_to privileges_url, notice: 'Privilege was successfully destroyed.'
+    message = "Privilege was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to privileges_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
