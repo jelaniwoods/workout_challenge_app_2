@@ -1,25 +1,20 @@
 class ParticipationsController < ApplicationController
   before_action :set_participation, only: %i[show edit update destroy]
 
-  # GET /participations
   def index
     @q = Participation.ransack(params[:q])
     @participations = @q.result(distinct: true).includes(:user, :challenge,
                                                          :team).page(params[:page]).per(10)
   end
 
-  # GET /participations/1
   def show; end
 
-  # GET /participations/new
   def new
     @participation = Participation.new
   end
 
-  # GET /participations/1/edit
   def edit; end
 
-  # POST /participations
   def create
     @participation = Participation.new(participation_params)
 
@@ -35,7 +30,6 @@ class ParticipationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /participations/1
   def update
     if @participation.update(participation_params)
       redirect_to @participation,
@@ -45,7 +39,6 @@ class ParticipationsController < ApplicationController
     end
   end
 
-  # DELETE /participations/1
   def destroy
     @participation.destroy
     message = "Participation was successfully deleted."
@@ -58,12 +51,10 @@ class ParticipationsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_participation
     @participation = Participation.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def participation_params
     params.require(:participation).permit(:user_id, :challenge_id, :team_id)
   end

@@ -4,25 +4,20 @@ class PrivilegesController < ApplicationController
 
   before_action :set_privilege, only: %i[show edit update destroy]
 
-  # GET /privileges
   def index
     @q = Privilege.ransack(params[:q])
     @privileges = @q.result(distinct: true).includes(:user,
                                                      :challenge).page(params[:page]).per(10)
   end
 
-  # GET /privileges/1
   def show; end
 
-  # GET /privileges/new
   def new
     @privilege = Privilege.new
   end
 
-  # GET /privileges/1/edit
   def edit; end
 
-  # POST /privileges
   def create
     @privilege = Privilege.new(privilege_params)
 
@@ -38,7 +33,6 @@ class PrivilegesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /privileges/1
   def update
     if @privilege.update(privilege_params)
       redirect_to @privilege, notice: "Privilege was successfully updated."
@@ -47,7 +41,6 @@ class PrivilegesController < ApplicationController
     end
   end
 
-  # DELETE /privileges/1
   def destroy
     @privilege.destroy
     message = "Privilege was successfully deleted."
@@ -68,12 +61,10 @@ class PrivilegesController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_privilege
     @privilege = Privilege.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def privilege_params
     params.require(:privilege).permit(:challenge_id, :user_id)
   end

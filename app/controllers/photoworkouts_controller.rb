@@ -1,25 +1,20 @@
 class PhotoworkoutsController < ApplicationController
   before_action :set_photoworkout, only: %i[show edit update destroy]
 
-  # GET /photoworkouts
   def index
     @q = Photoworkout.ransack(params[:q])
     @photoworkouts = @q.result(distinct: true).includes(:user,
                                                         :challenge).page(params[:page]).per(10)
   end
 
-  # GET /photoworkouts/1
   def show; end
 
-  # GET /photoworkouts/new
   def new
     @photoworkout = Photoworkout.new
   end
 
-  # GET /photoworkouts/1/edit
   def edit; end
 
-  # POST /photoworkouts
   def create
     @photoworkout = Photoworkout.new(photoworkout_params)
 
@@ -35,7 +30,6 @@ class PhotoworkoutsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /photoworkouts/1
   def update
     if @photoworkout.update(photoworkout_params)
       redirect_to @photoworkout,
@@ -45,7 +39,6 @@ class PhotoworkoutsController < ApplicationController
     end
   end
 
-  # DELETE /photoworkouts/1
   def destroy
     @photoworkout.destroy
     message = "Photoworkout was successfully deleted."
@@ -58,12 +51,10 @@ class PhotoworkoutsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_photoworkout
     @photoworkout = Photoworkout.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def photoworkout_params
     params.require(:photoworkout).permit(:caption, :challenge_id, :user_id,
                                          :likes_count, :photo_locator, :calories, :main_exercise)

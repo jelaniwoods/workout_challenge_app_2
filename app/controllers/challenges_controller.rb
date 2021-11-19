@@ -1,14 +1,12 @@
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: %i[show edit update destroy]
 
-  # GET /challenges
   def index
     @q = Challenge.ransack(params[:q])
     @challenges = @q.result(distinct: true).includes(:participations,
                                                      :photos, :privileges, :teams).page(params[:page]).per(10)
   end
 
-  # GET /challenges/1
   def show
     @team = Team.new
     @privilege = Privilege.new
@@ -16,15 +14,12 @@ class ChallengesController < ApplicationController
     @participation = Participation.new
   end
 
-  # GET /challenges/new
   def new
     @challenge = Challenge.new
   end
 
-  # GET /challenges/1/edit
   def edit; end
 
-  # POST /challenges
   def create
     @challenge = Challenge.new(challenge_params)
 
@@ -35,7 +30,6 @@ class ChallengesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /challenges/1
   def update
     if @challenge.update(challenge_params)
       redirect_to @challenge, notice: "Challenge was successfully updated."
@@ -44,7 +38,6 @@ class ChallengesController < ApplicationController
     end
   end
 
-  # DELETE /challenges/1
   def destroy
     @challenge.destroy
     redirect_to challenges_url, notice: "Challenge was successfully destroyed."
@@ -52,12 +45,10 @@ class ChallengesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_challenge
     @challenge = Challenge.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def challenge_params
     params.require(:challenge).permit(:starting_time, :ending_time,
                                       :challenge_name, :challenge_image, :removal_policy, :new_user_policy, :penalty_policy, :workout_perday_policy, :workout_criteria, :prize_policy, :challenge_handle, :number_of_teams)
