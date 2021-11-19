@@ -1,6 +1,9 @@
 class Team < ApplicationRecord
   # Direct associations
 
+  has_many   :participations,
+             :dependent => :destroy
+
   belongs_to :challenge
 
   # Indirect associations

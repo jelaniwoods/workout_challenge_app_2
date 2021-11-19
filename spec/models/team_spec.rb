@@ -4,6 +4,8 @@ RSpec.describe Team, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:participations) }
+
     it { should belong_to(:challenge) }
 
     end
