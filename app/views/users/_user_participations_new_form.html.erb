@@ -23,7 +23,7 @@
     <%= f.label :team_id %>
 
     <!-- Input for team_id start -->
-    <%= f.text_field :team_id, class: "form-control" %>
+    <%= f.collection_select :team_id, Team.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for team_id end -->
   </div>
   <!-- Label and input for team_id end -->
