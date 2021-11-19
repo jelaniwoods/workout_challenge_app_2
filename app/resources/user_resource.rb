@@ -11,6 +11,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :photos,
+             resource: PhotoworkoutResource
+
   has_many   :participations
 
   has_many   :privileges
