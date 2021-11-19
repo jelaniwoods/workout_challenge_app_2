@@ -12,6 +12,8 @@ class PhotoworkoutResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :challenge
+
   belongs_to :user
 
   # Indirect associations
