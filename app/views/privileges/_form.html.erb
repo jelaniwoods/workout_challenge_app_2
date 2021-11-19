@@ -1,7 +1,6 @@
 <% was_validated = privilege.errors.any? %>
 
 <%= form_with(model: privilege, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for challenge_id start -->
   <div class="form-group">
     <% challenge_class = "form-control" %>
     <% challenge_was_invalid = privilege.errors.include?(:challenge) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :challenge_id %>
-    <!-- Input for challenge_id start -->
     <%= f.collection_select :challenge_id, Challenge.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for challenge_id end -->
     <% if challenge_was_invalid %>
       <% privilege.errors.full_messages_for(:challenge).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,11 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for challenge_id end -->
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

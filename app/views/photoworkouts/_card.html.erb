@@ -6,49 +6,35 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Caption</dt>
-      <!-- Display caption start -->
       <dd><%= photoworkout.caption %></dd>
-      <!-- Display caption end -->
 
       <dt>Challenge</dt>
-      <!-- Display challenge_id start -->
       <dd>
         <% if @photoworkout.challenge.present? %>
           <%= link_to photoworkout.challenge, photoworkout.challenge %>
         <% end %>
       </dd>
-      <!-- Display challenge_id end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @photoworkout.user.present? %>
           <%= link_to photoworkout.user, photoworkout.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Likes count</dt>
-      <!-- Display likes_count start -->
       <dd><%= photoworkout.likes_count %></dd>
-      <!-- Display likes_count end -->
 
       <dt>Photo locator</dt>
-      <!-- Display photo_locator start -->
       <dd>
         <%= cl_image_tag @photoworkout.photo_locator, class: "img-fluid" %>
       </dd>
-      <!-- Display photo_locator end -->
 
       <dt>Calories</dt>
-      <!-- Display calories start -->
       <dd><%= photoworkout.calories %></dd>
-      <!-- Display calories end -->
 
       <dt>Main exercise</dt>
-      <!-- Display main_exercise start -->
       <dd><%= photoworkout.main_exercise %></dd>
-      <!-- Display main_exercise end -->
 
     </dl>
 
@@ -57,21 +43,17 @@
         <%= link_to_show_or_back photoworkout, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link photoworkout start -->
       <div class="col">
         <%= link_to edit_photoworkout_url(photoworkout), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link photoworkout end -->
 
-      <!-- Delete link photoworkout start -->
       <div class="col">
         <%= link_to photoworkout, method: :delete, data: { confirm: "Do you really want to delete this photoworkout?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link photoworkout end -->
     </div>
   </div>
 

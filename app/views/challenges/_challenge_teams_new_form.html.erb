@@ -1,32 +1,18 @@
-<!-- Form team start -->
 <%= form_with(model: @team, local: true) do |f| %>
-<!-- Form team end -->
 
-  <!-- Label and input for team_name start -->
   <div class="form-group">
     <%= f.label :team_name %>
 
-    <!-- Input for team_name start -->
     <%= f.text_field :team_name, class: "form-control" %>
-    <!-- Input for team_name end -->
   </div>
-  <!-- Label and input for team_name end -->
 
-  <!-- Label and input for team_picture start -->
   <div class="form-group">
     <%= f.label :team_picture %>
 
-    <!-- Input for team_picture start -->
     <%= f.file_field :team_picture, class: "form-control" %>
-    <!-- Input for team_picture end -->
   </div>
-  <!-- Label and input for team_picture end -->
 
-  <!-- Label and input for challenge_id start -->
-  <!-- Input for challenge_id start -->
   <%= f.hidden_field :challenge_id, value: @challenge.id %>
-  <!-- Input for challenge_id end -->
-  <!-- Label and input for challenge_id end -->
 
   <%= f.submit "Create team", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

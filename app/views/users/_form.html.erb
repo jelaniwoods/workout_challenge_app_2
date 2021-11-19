@@ -1,7 +1,6 @@
 <% was_validated = user.errors.any? %>
 
 <%= form_with(model: user, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for is_premium start -->
   <div class="form-check">
     <% is_premium_class = "form-check-input" %>
     <% is_premium_was_invalid = user.errors.include?(:is_premium) %>
@@ -25,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for is_premium end -->
-  <!-- Label and input for profile_picture start -->
   <div class="form-group">
     <% profile_picture_class = "form-control" %>
     <% profile_picture_was_invalid = user.errors.include?(:profile_picture) %>
@@ -40,9 +37,7 @@
     <% end %>
 
     <%= f.label :profile_picture %>
-    <!-- Input for profile_picture start -->
     <%= f.text_field :profile_picture, class: profile_picture_class, placeholder: "Enter profile picture" %>
-    <!-- Input for profile_picture end -->
     <% if profile_picture_was_invalid %>
       <% user.errors.full_messages_for(:profile_picture).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -51,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for profile_picture end -->
-  <!-- Label and input for bio start -->
   <div class="form-group">
     <% bio_class = "form-control" %>
     <% bio_was_invalid = user.errors.include?(:bio) %>
@@ -66,9 +59,7 @@
     <% end %>
 
     <%= f.label :bio %>
-    <!-- Input for bio start -->
     <%= f.text_area :bio, class: bio_class, placeholder: "Enter bio" %>
-    <!-- Input for bio end -->
     <% if bio_was_invalid %>
       <% user.errors.full_messages_for(:bio).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -77,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for bio end -->
-  <!-- Label and input for username start -->
   <div class="form-group">
     <% username_class = "form-control" %>
     <% username_was_invalid = user.errors.include?(:username) %>
@@ -92,9 +81,7 @@
     <% end %>
 
     <%= f.label :username %>
-    <!-- Input for username start -->
     <%= f.text_field :username, class: username_class, placeholder: "Enter username" %>
-    <!-- Input for username end -->
     <% if username_was_invalid %>
       <% user.errors.full_messages_for(:username).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -103,6 +90,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for username end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

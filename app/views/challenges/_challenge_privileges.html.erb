@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @challenge.privileges.each do |privilege| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to privilege, privilege %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == privilege.user %>
           <%= link_to privilege, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="challenge_privileges_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "challenges/challenge_privileges_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

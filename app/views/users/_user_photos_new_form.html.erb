@@ -1,71 +1,41 @@
-<!-- Form photoworkout start -->
 <%= form_with(model: @photoworkout, local: true) do |f| %>
-<!-- Form photoworkout end -->
 
-  <!-- Label and input for caption start -->
   <div class="form-group">
     <%= f.label :caption %>
-    <!-- Input for caption start -->
     <%= f.text_area :caption, rows: "3", class: "form-control" %>
-    <!-- Input for caption end -->
   </div>
-  <!-- Label and input for caption end -->
 
-  <!-- Label and input for challenge_id start -->
   <div class="form-group">
     <%= f.label :challenge_id %>
 
-    <!-- Input for challenge_id start -->
     <%= f.collection_select :challenge_id, Challenge.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for challenge_id end -->
   </div>
-  <!-- Label and input for challenge_id end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for likes_count start -->
   <div class="form-group">
     <%= f.label :likes_count %>
 
-    <!-- Input for likes_count start -->
     <%= f.text_field :likes_count, class: "form-control" %>
-    <!-- Input for likes_count end -->
   </div>
-  <!-- Label and input for likes_count end -->
 
-  <!-- Label and input for photo_locator start -->
   <div class="form-group">
     <%= f.label :photo_locator %>
 
-    <!-- Input for photo_locator start -->
     <%= f.file_field :photo_locator, class: "form-control" %>
-    <!-- Input for photo_locator end -->
   </div>
-  <!-- Label and input for photo_locator end -->
 
-  <!-- Label and input for calories start -->
   <div class="form-group">
     <%= f.label :calories %>
 
-    <!-- Input for calories start -->
     <%= f.text_field :calories, class: "form-control" %>
-    <!-- Input for calories end -->
   </div>
-  <!-- Label and input for calories end -->
 
-  <!-- Label and input for main_exercise start -->
   <div class="form-group">
     <%= f.label :main_exercise %>
 
-    <!-- Input for main_exercise start -->
     <%= f.text_field :main_exercise, class: "form-control" %>
-    <!-- Input for main_exercise end -->
   </div>
-  <!-- Label and input for main_exercise end -->
 
   <%= f.submit "Create photoworkout", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

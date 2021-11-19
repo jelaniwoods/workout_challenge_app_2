@@ -6,25 +6,19 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Team name</dt>
-      <!-- Display team_name start -->
       <dd><%= team.team_name %></dd>
-      <!-- Display team_name end -->
 
       <dt>Team picture</dt>
-      <!-- Display team_picture start -->
       <dd>
         <%= cl_image_tag @team.team_picture, class: "img-fluid" %>
       </dd>
-      <!-- Display team_picture end -->
 
       <dt>Challenge</dt>
-      <!-- Display challenge_id start -->
       <dd>
         <% if @team.challenge.present? %>
           <%= link_to team.challenge, team.challenge %>
         <% end %>
       </dd>
-      <!-- Display challenge_id end -->
 
     </dl>
 
@@ -33,21 +27,17 @@
         <%= link_to_show_or_back team, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link team start -->
       <div class="col">
         <%= link_to edit_team_url(team), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link team end -->
 
-      <!-- Delete link team start -->
       <div class="col">
         <%= link_to team, method: :delete, data: { confirm: "Do you really want to delete this team?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link team end -->
     </div>
   </div>
 

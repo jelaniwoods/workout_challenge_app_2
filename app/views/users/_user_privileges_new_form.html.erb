@@ -1,22 +1,12 @@
-<!-- Form privilege start -->
 <%= form_with(model: @privilege, local: true) do |f| %>
-<!-- Form privilege end -->
 
-  <!-- Label and input for challenge_id start -->
   <div class="form-group">
     <%= f.label :challenge_id %>
 
-    <!-- Input for challenge_id start -->
     <%= f.collection_select :challenge_id, Challenge.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for challenge_id end -->
   </div>
-  <!-- Label and input for challenge_id end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
   <%= f.submit "Create privilege", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

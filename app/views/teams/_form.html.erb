@@ -1,7 +1,6 @@
 <% was_validated = team.errors.any? %>
 
 <%= form_with(model: team, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for team_name start -->
   <div class="form-group">
     <% team_name_class = "form-control" %>
     <% team_name_was_invalid = team.errors.include?(:team_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :team_name %>
-    <!-- Input for team_name start -->
     <%= f.text_field :team_name, class: team_name_class, placeholder: "Enter team name" %>
-    <!-- Input for team_name end -->
     <% if team_name_was_invalid %>
       <% team.errors.full_messages_for(:team_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for team_name end -->
-  <!-- Label and input for team_picture start -->
   <div class="form-group">
     <% team_picture_class = "form-control" %>
     <% team_picture_was_invalid = team.errors.include?(:team_picture) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :team_picture %>
-    <!-- Input for team_picture start -->
     <%= f.file_field :team_picture, class: "form-control" %>
-    <!-- Input for team_picture end -->
     <% if team_picture_was_invalid %>
       <% team.errors.full_messages_for(:team_picture).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for team_picture end -->
-  <!-- Label and input for challenge_id start -->
   <div class="form-group">
     <% challenge_class = "form-control" %>
     <% challenge_was_invalid = team.errors.include?(:challenge) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :challenge_id %>
-    <!-- Input for challenge_id start -->
     <%= f.collection_select :challenge_id, Challenge.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for challenge_id end -->
     <% if challenge_was_invalid %>
       <% team.errors.full_messages_for(:challenge).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for challenge_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
