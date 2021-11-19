@@ -17,6 +17,8 @@ class ChallengeResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :participations
+
   # Indirect associations
 
 end
