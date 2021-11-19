@@ -1,6 +1,9 @@
 class Challenge < ApplicationRecord
   # Direct associations
 
+  has_many   :teams,
+             :dependent => :destroy
+
   has_many   :privileges,
              :dependent => :destroy
 
