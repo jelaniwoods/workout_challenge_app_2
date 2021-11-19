@@ -8,6 +8,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/1
   def show
+    @participation = Participation.new
   end
 
   # GET /teams/new
@@ -24,7 +25,12 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     if @team.save
-      redirect_to @team, notice: 'Team was successfully created.'
+      message = 'Team was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @team, notice: message
+      end
     else
       render :new
     end

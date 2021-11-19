@@ -24,7 +24,12 @@ class PhotoworkoutsController < ApplicationController
     @photoworkout = Photoworkout.new(photoworkout_params)
 
     if @photoworkout.save
-      redirect_to @photoworkout, notice: 'Photoworkout was successfully created.'
+      message = 'Photoworkout was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @photoworkout, notice: message
+      end
     else
       render :new
     end

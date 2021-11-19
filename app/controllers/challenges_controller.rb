@@ -8,6 +8,10 @@ class ChallengesController < ApplicationController
 
   # GET /challenges/1
   def show
+    @team = Team.new
+    @privilege = Privilege.new
+    @photoworkout = Photoworkout.new
+    @participation = Participation.new
   end
 
   # GET /challenges/new

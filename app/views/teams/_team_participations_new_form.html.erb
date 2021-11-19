@@ -1,0 +1,32 @@
+<!-- Form participation start -->
+<%= form_with(model: @participation, local: true) do |f| %>
+<!-- Form participation end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <%= f.label :user_id %>
+
+    <!-- Input for user_id start -->
+    <%= f.text_field :user_id, class: "form-control" %>
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for challenge_id start -->
+  <div class="form-group">
+    <%= f.label :challenge_id %>
+
+    <!-- Input for challenge_id start -->
+    <%= f.text_field :challenge_id, class: "form-control" %>
+    <!-- Input for challenge_id end -->
+  </div>
+  <!-- Label and input for challenge_id end -->
+
+  <!-- Label and input for team_id start -->
+  <!-- Input for team_id start -->
+  <%= f.hidden_field :team_id, value: @team.id %>
+  <!-- Input for team_id end -->
+  <!-- Label and input for team_id end -->
+
+  <%= f.submit "Create participation", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

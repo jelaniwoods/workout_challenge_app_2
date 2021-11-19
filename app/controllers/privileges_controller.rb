@@ -24,7 +24,12 @@ class PrivilegesController < ApplicationController
     @privilege = Privilege.new(privilege_params)
 
     if @privilege.save
-      redirect_to @privilege, notice: 'Privilege was successfully created.'
+      message = 'Privilege was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @privilege, notice: message
+      end
     else
       render :new
     end
