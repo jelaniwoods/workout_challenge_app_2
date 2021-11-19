@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Participation #<%= participation.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= participation.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Challenge</dt>
+      <!-- Display challenge_id start -->
+      <dd><%= participation.challenge_id %></dd>
+      <!-- Display challenge_id end -->
+
+      <dt>Team</dt>
+      <!-- Display team_id start -->
+      <dd><%= participation.team_id %></dd>
+      <!-- Display team_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back participation, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link participation start -->
+      <div class="col">
+        <%= link_to edit_participation_url(participation), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link participation end -->
+
+      <!-- Delete link participation start -->
+      <div class="col">
+        <%= link_to participation, method: :delete, data: { confirm: "Do you really want to delete this participation?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link participation end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(participation.updated_at) %> ago
+  </div>
+</div>
