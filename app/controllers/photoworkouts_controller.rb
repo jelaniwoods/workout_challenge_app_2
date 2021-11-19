@@ -3,7 +3,7 @@ class PhotoworkoutsController < ApplicationController
 
   # GET /photoworkouts
   def index
-    @photoworkouts = Photoworkout.all
+    @photoworkouts = Photoworkout.page(params[:page]).per(10)
   end
 
   # GET /photoworkouts/1

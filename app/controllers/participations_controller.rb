@@ -3,7 +3,7 @@ class ParticipationsController < ApplicationController
 
   # GET /participations
   def index
-    @participations = Participation.all
+    @participations = Participation.page(params[:page]).per(10)
   end
 
   # GET /participations/1

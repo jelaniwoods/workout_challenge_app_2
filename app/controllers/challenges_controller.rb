@@ -3,7 +3,7 @@ class ChallengesController < ApplicationController
 
   # GET /challenges
   def index
-    @challenges = Challenge.all
+    @challenges = Challenge.page(params[:page]).per(10)
   end
 
   # GET /challenges/1

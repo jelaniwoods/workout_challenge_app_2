@@ -34,6 +34,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @privileges, partial: "list_item", as: :privilege %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @privileges, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>

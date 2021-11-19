@@ -5,7 +5,7 @@ class PrivilegesController < ApplicationController
 
   # GET /privileges
   def index
-    @privileges = Privilege.all
+    @privileges = Privilege.page(params[:page]).per(10)
   end
 
   # GET /privileges/1

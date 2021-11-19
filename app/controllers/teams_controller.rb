@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
 
   # GET /teams
   def index
-    @teams = Team.all
+    @teams = Team.page(params[:page]).per(10)
   end
 
   # GET /teams/1
